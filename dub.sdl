@@ -4,7 +4,7 @@ description "BLAKE3 D wrappers compliant with Phobos's std.digest."
 authors "Per Nordlöw"
 copyright "Copyright © 2024, Per Nordlöw"
 license "BSL-1.0"
-preBuildCommands "bash provision-libblake3.sh"
+preBuildCommands "bash provision_libblake3.sh"
 lflags "BLAKE3-build/libblake3.a" platform="posix"
 lflags "BLAKE3-build/libblake3.lib" platform="windows"
 
