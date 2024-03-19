@@ -14,3 +14,4 @@ docs/
 *.o
 *.obj
 *.lst
+BLAKE3-build
