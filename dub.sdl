@@ -1,0 +1,6 @@
+name "blake3-d"
+targetType "library"
+description "BLAKE3 D wrappers compliant with Phobos's std.digest."
+authors "Per Nordlöw"
+copyright "Copyright © 2024, Per Nordlöw"
+license "BSL-1.0"
