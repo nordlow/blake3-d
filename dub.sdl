@@ -4,6 +4,15 @@ description "BLAKE3 D wrappers compliant with Phobos's std.digest."
 authors "Per Nordlöw"
 copyright "Copyright © 2024, Per Nordlöw"
 license "BSL-1.0"
-preBuildCommands "bash provision.sh"
+preBuildCommands "bash provision-libblake3.sh"
 lflags "BLAKE3-build/libblake3.a" platform="posix"
 lflags "BLAKE3-build/libblake3.lib" platform="windows"
+
+buildType "unittest" {
+	dflags "-preview=in" "-preview=dip1000" "-preview=dip1008"
+	dflags "-g" "-checkaction=context" "-allinst" "-unittest"
+	dflags "-fsanitize=address" platform="posix-ldc"
+	dflags "-debug" platform="dmd"
+	dflags "--d-debug" platform="ldc"
+	lflags "--export-dynamic" platform="posix" # for ASan backtraces
+}
