@@ -5,7 +5,7 @@ authors "Per Nordlöw"
 copyright "Copyright © 2024, Per Nordlöw"
 license "BSL-1.0"
 preBuildCommands "bash provision_libblake3.sh"
-lflags "-L$PACKAGE_DIR/BLAKE3-build"
+lflags "-L$PACKAGE_DIR/BLAKE3-build" "-rpath=$PACKAGE_DIR/BLAKE3-build"
 libs "blake3"
 
 buildType "unittest" {
