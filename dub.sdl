@@ -5,8 +5,8 @@ authors "Per Nordlöw"
 copyright "Copyright © 2024, Per Nordlöw"
 license "BSL-1.0"
 preBuildCommands "bash provision_libblake3.sh"
-lflags "BLAKE3-build/libblake3.a" platform="posix"
-lflags "BLAKE3-build/libblake3.lib" platform="windows"
+lflags "-LBLAKE3-build"
+libs "blake3"
 
 buildType "unittest" {
 	dflags "-preview=in" "-preview=dip1000" "-preview=dip1008"
