@@ -7,10 +7,13 @@ module blake3;
 /** BLAKE3 wrapper around BLAKE3 C API.
  */
 @safe struct BLAKE3 {
-pure nothrow @nogc:
+pure nothrow @nogc pragma(inline, true):
     void start() @trusted => blake3_hasher_init(&_hasher);
 
     void put(scope const(ubyte)[] data...) @trusted
+		=> blake3_hasher_update(&_hasher, data.ptr, data.length);
+	/// ditto
+    void put(scope const(char)[] data...) @trusted
 		=> blake3_hasher_update(&_hasher, data.ptr, data.length);
 
     ubyte[32] finish() const @trusted {
@@ -37,7 +40,7 @@ pure nothrow @nogc:
 	static immutable expected = x"793c10bc0b28c378330d39edace7260af9da81d603b8ffede2706a21eda893f4";
 	BLAKE3 h;
 	h.start();
-	h.put(cast(immutable(ubyte)[])input);
+	h.put(input);
 	assert(h.finish == expected);
 }
 
