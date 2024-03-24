@@ -9,7 +9,7 @@ mkdir -p "${TARGET_ROOT}"
 pushd "${TARGET_ROOT}" > /dev/null
 
 # ok to use "-march=native" because of no distribution
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS="-march=native" ../"${SOURCE_ROOT}" > /dev/null
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS="-march=native" ../"${SOURCE_ROOT}"
 make --quiet
 
 popd > /dev/null
