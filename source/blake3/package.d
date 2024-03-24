@@ -48,16 +48,17 @@ version (unittest) {
 	private enum digestLength = typeof(BLAKE3.init.finish()).sizeof;
 }
 
-import core.stdc.stdint : uint8_t, uint32_t, uint64_t;
+private import core.stdc.stdint : uint8_t, uint32_t, uint64_t;
 
 // Copied from BLAKE3/c/blake3.h
-extern(C) pure nothrow @nogc {
-private enum BLAKE3_VERSION_STRING = "1.5.1";
-private enum BLAKE3_KEY_LEN = 32;
-private enum BLAKE3_OUT_LEN = 32;
-private enum BLAKE3_BLOCK_LEN = 64;
-private enum BLAKE3_CHUNK_LEN = 1024;
-private enum BLAKE3_MAX_DEPTH = 54;
+extern(C) private pure nothrow @nogc {
+
+enum BLAKE3_VERSION_STRING = "1.5.1";
+enum BLAKE3_KEY_LEN = 32;
+enum BLAKE3_OUT_LEN = 32;
+enum BLAKE3_BLOCK_LEN = 64;
+enum BLAKE3_CHUNK_LEN = 1024;
+enum BLAKE3_MAX_DEPTH = 54;
 
 // This struct is a private implementation detail. It has to be here because
 // it's part of blake3_hasher below.
