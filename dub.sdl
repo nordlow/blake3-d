@@ -9,7 +9,7 @@ lflags "-L$PACKAGE_DIR/BLAKE3-build" "-rpath=$PACKAGE_DIR/BLAKE3-build"
 libs "blake3"
 
 buildType "unittest" {
-	dflags "-preview=in" "-preview=dip1000" "-preview=dip1008"
+	dflags "-preview=in" "-preview=dip1000" "-preview=dip1008" # TODO: "-preview=dip1021"
 	dflags "-g" "-checkaction=context" "-allinst" "-unittest"
 	dflags "-fsanitize=address" platform="posix-ldc"
 	dflags "-debug" platform="dmd"
