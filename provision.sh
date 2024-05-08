@@ -2,12 +2,6 @@
 
 set -euo pipefail
 
-SOURCE_ROOT="BLAKE3/c"
-TARGET_ROOT="BLAKE3-build"
-
-mkdir -p "${TARGET_ROOT}"
-pushd "${TARGET_ROOT}" > /dev/null
-
 install_apt_packages_of_executables() {
 	local packages=()
 	for command in "$@"; do
@@ -21,6 +15,12 @@ install_apt_packages_of_executables() {
 		sudo apt install "${packages[@]}"
 	fi
 }
+
+SOURCE_ROOT="BLAKE3/c"
+TARGET_ROOT="BLAKE3-build"
+
+mkdir -p "${TARGET_ROOT}"
+pushd "${TARGET_ROOT}" > /dev/null
 
 tools=("cmake")
 install_apt_packages_of_executables "${tools[@]}"
