@@ -4,7 +4,7 @@ set -euo pipefail
 
 SOURCE_ROOT="BLAKE3/c"
 TARGET_ROOT="BLAKE3-build"
-tools=("cmake")
+tools=("cmake" "gcc")
 
 install_apt_packages_of_executables() {
 	local packages=()
