@@ -11,13 +11,13 @@ lflags "-L$PACKAGE_DIR/BLAKE3-build" "-rpath=$PACKAGE_DIR/BLAKE3-build"
 libs "blake3"
 
 # WARNING: dub picks the first configuration by default so put debug first here!
-configuration "debug" { # `redub` doesn't support custom `buildType`
+configuration "debug" {
    dflags "-g" "-checkaction=context" "-allinst"
    dflags "-debug" platform="dmd"
    dflags "--d-debug" platform="ldc"
 }
 
-configuration "unittest" { # `redub` doesn't support custom `buildType`
+configuration "unittest" {
 	dflags "-g" "-checkaction=context" "-allinst" "-unittest"
 	dflags "-fsanitize=address" platform="posix-ldc"
 	dflags "-debug" platform="dmd"
