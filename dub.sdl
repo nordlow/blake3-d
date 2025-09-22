@@ -22,7 +22,6 @@ configuration "unittest" { # `redub` doesn't support custom `buildType`
 	dflags "-fsanitize=address" platform="posix-ldc"
 	dflags "-debug" platform="dmd"
 	dflags "--d-debug" platform="ldc"
-	dflags "-Xcc=-fuse-ld=lld"	# use better linker
 	lflags "--export-dynamic" platform="posix" # for ASan backtraces
 }
 
@@ -31,6 +30,5 @@ buildType "unittest" {
 	dflags "-fsanitize=address" platform="posix-ldc"
 	dflags "-debug" platform="dmd"
 	dflags "--d-debug" platform="ldc"
-	dflags "-Xcc=-fuse-ld=lld"	# use better linker
 	lflags "--export-dynamic" platform="posix" # for ASan backtraces
 }
